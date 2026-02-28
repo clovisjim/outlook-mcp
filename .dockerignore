@@ -1,0 +1,15 @@
+node_modules
+.git
+.github
+.env
+.env.*
+*.md
+!README.md
+!RAILWAY-DEPLOY.md
+test/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+ARCHITECTURE-NOTES.md

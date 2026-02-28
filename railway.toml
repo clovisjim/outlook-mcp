@@ -1,0 +1,22 @@
+# ==========================================================================
+# Railway deployment configuration
+# ==========================================================================
+# Railway auto-detects the Dockerfile, but this file provides additional
+# configuration hints for the build and deploy process.
+# ==========================================================================
+
+[build]
+# Use the Dockerfile for building
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# Start command (matches Dockerfile CMD, but explicit here for clarity)
+startCommand = "node http-server.js"
+
+# Health check path
+healthcheckPath = "/health"
+healthcheckTimeout = 10
+
+# Graceful shutdown timeout (seconds)
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

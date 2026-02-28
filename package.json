@@ -1,27 +1,34 @@
 {
   "name": "outlook-mcp",
-  "version": "1.0.0",
-  "description": "MCP server for Claude to access Outlook data via Microsoft Graph API",
+  "version": "1.1.0",
+  "description": "MCP server for Claude to access Outlook data via Microsoft Graph API — supports cloud deployment via HTTP/SSE",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "start:http": "node http-server.js",
     "auth-server": "node outlook-auth-server.js",
     "test-mode": "USE_TEST_MODE=true node index.js",
     "inspect": "npx @modelcontextprotocol/inspector node index.js",
-    "test": "jest"
+    "test": "jest",
+    "generate-key": "node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\""
   },
   "keywords": [
     "claude",
     "outlook",
     "mcp",
     "microsoft-graph",
-    "email"
+    "email",
+    "railway",
+    "sse"
   ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.1.0",
-    "dotenv": "^16.5.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
   },
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.10.2",
@@ -29,6 +36,6 @@
     "supertest": "^7.0.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   }
 }
