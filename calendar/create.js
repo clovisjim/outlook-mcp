@@ -11,7 +11,7 @@ const { DEFAULT_TIMEZONE } = require('../config');
  * @returns {object} - MCP response
  */
 async function handleCreateEvent(args) {
-  const { subject, start, end, attendees, body } = args;
+  const { subject, start, end, attendees, body, location } = args;
 
   if (!subject || !start || !end) {
     return {
@@ -35,7 +35,8 @@ async function handleCreateEvent(args) {
       start: { dateTime: start.dateTime || start, timeZone: start.timeZone || DEFAULT_TIMEZONE },
       end: { dateTime: end.dateTime || end, timeZone: end.timeZone || DEFAULT_TIMEZONE },
       attendees: attendees?.map(email => ({ emailAddress: { address: email }, type: "required" })),
-      body: { contentType: "HTML", content: body || "" }
+      body: { contentType: "HTML", content: body || "" },
+      ...(location ? { location: { displayName: location } } : {})
     };
 
     // Make API call

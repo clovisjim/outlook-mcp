@@ -71,6 +71,10 @@ const calendarTools = [
         body: {
           type: "string",
           description: "Optional body content for the event"
+        },
+        location: {
+          type: "string",
+          description: "Optional location for the event (e.g. a room name, address, or meeting URL)"
         }
       },
       required: ["subject", "start", "end"]
