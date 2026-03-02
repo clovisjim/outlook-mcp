@@ -75,6 +75,10 @@ const calendarTools = [
         location: {
           type: "string",
           description: "Optional location for the event (e.g. a room name, address, or meeting URL)"
+        },
+        timeZone: {
+          type: "string",
+          description: "Optional IANA/Windows timezone identifier for the event (default: 'Mountain Standard Time'). E.g. 'Mountain Standard Time', 'Eastern Standard Time', 'UTC'."
         }
       },
       required: ["subject", "start", "end"]

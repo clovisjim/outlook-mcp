@@ -65,5 +65,5 @@ module.exports = {
   MAX_RESULT_COUNT: 50,
 
   // Timezone
-  DEFAULT_TIMEZONE: "Central European Standard Time",
+  DEFAULT_TIMEZONE: "Mountain Standard Time",
 };
